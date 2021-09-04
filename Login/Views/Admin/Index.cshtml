@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+@using Login.Models
+@using System; 
+@model IEnumerable<MessageFormModel>
+
+<table class="table table-hover table-primary">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Message</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.Id</th>
+            <td>@item.Username</td>
+            <td>@item.Message</td>
+            <td><a href="/admin/remove?id=@item.Id" class="btn btn-block btn-danger">❌</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

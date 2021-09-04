@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Message";
+}
+@model Login.Models.MessageFormModel
+
+<div class="row">
+    <div class="col-md-5 offset-md-4">
+        <form action="/message/send" method="post" class="form-group">
+            <p>Email</p>
+            <input asp-for="Username" type="email" name="Username" value="" class="d-md-block form-control" />
+            <span asp-validation-for="Username"></span>
+            <p>Повідомлення:</p>
+            <textarea asp-for="Message" name="Message" cols="40" rows="5" class="d-md-block form-control"></textarea>
+            <span asp-validation-for="Message"></span>
+            <span id="msg"></span>
+            @if (ViewBag.Check==1)
+            {
+                <script>
+                    let element = document.getElementById("msg");
+                    element.innerHTML = "<p id='hide'>Повідомлення успішно відправлене</p>";
+                    setTimeout(()=> {
+                        let hide = document.getElementById("hide");
+                        hide.outerHTML = "";
+                    }, 10000);
+                </script>
+            }
+            <input type="submit" value="Відправити повідомлення" class="btn btn-success btn-block" />
+        </form>
+    </div>
+</div>

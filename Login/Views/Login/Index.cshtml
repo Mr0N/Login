@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@model Login.Models.UserModel
+
+<div class="row">
+    <div class="col-md-5 offset-md-4">
+        <form action="/Login/Check" method="post" class="form-group reg">
+            <div>
+                <input asp-for="UserName" type="text" name="UserName" value="" placeholder="Username" class="d-md-block form-control" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+
+            <div>
+                <input asp-for="Passwork" type="password" name="Passwork" value="" placeholder="Password" class="d-md-block form-control" />
+                <span asp-validation-for="Passwork"></span>
+            </div>
+            <div>
+                <input type="submit" value="Війти" class="btn btn-success btn-block" />
+            </div>
+            @if (@ViewBag.Message != null)
+            {
+                <p>@ViewBag.Message</p>
+            }
+            <div class="link_reg">
+                <a class="card-link"  href="/reg">Зареєструватися</a>
+            </div>
+        </form>
+
+    </div>
+</div>

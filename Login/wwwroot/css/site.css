@@ -1,0 +1,10 @@
+﻿.reg input {
+    margin-top: 20px;
+}
+.reg a{
+    margin-top:20px;
+}
+.link_reg > a {
+    color:springgreen;
+    position:center;
+}
